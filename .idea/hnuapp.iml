@@ -19,7 +19,7 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="D:/hnuapp\test1" />
+        <option value="$MODULE_DIR$/test1/templates" />
       </list>
     </option>
   </component>
