@@ -6,5 +6,11 @@ class classstatus(models.Model):
     Building = models.CharField(max_length=50)
     ClassStatus = models.IntegerField()
     UpdateTime = models.DateTimeField()
+    CardName = models.CharField(max_length=50,default="")
+
+class otsteam(models.Model):
+    Name = models.CharField(max_length=50)
+    ImgName = models.CharField(max_length=50)
+
 
 
