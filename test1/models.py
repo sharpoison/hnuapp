@@ -11,6 +11,7 @@ class classstatus(models.Model):
 class otsteam(models.Model):
     Name = models.CharField(max_length=50)
     ImgName = models.CharField(max_length=50)
+    Tel = models.CharField(max_length=50,default="")
 
 
 
