@@ -18,6 +18,9 @@ class building(models.Model):
     Name = models.CharField(max_length=50)
     Area = models.CharField(max_length=50)
 
+class eventtype(models.Model):
+    Name = models.CharField(max_length=50)
+
 
 
 
