@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <meta name="keyword" content="">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+    <title>IWISYS智教系统</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../statics/assets/css/bootstrap.css" rel="stylesheet">
@@ -779,104 +779,32 @@
                 </ul><!--/#portfolio-filter-->
             </div>
 
-            <div class="portfolio-items">
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复101 《高等数学》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 1</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item use">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复105 《国际金融》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 2</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复106
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 3</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
+                      <div class="portfolio-items">
+             {% for foo in erjiaostatus %}
+                 {% if foo.ClassStatus == 1  %}
 
                 <div class="portfolio-item use active">
                     <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复202 《中国近代史》
+                        <img class="img-responsive" src="../statics/assets/img/classimg0001.jpg" alt="">
+                        {{ foo.ClassName }} 《高等数学》
                         <div class="portfolio-info">
-                            <h3>Portfolio Item 4</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                            <h3>周慧</h3>
+                            《大学外语》
+                            <a class="preview" href="../statics/assets/img/classlive.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
                         </div>
                     </div>
                 </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
+                 {% else   %}
+                  <div class="portfolio-item use stanby">
                     <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复203
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 5</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
+                        <img class="img-responsive" src="../statics/assets/img/classimg0002.jpg" alt="">
+                        {{ foo.ClassName }}
+
                     </div>
                 </div><!--/.portfolio-item-->
+                 {% endif %}
+             {% endfor %}
 
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复204 《大学英语I》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 5</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复206
-
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 7</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复207 《大学英语I》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 8</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
             </div>
         </div><!--/.container-->
     </section><!--/#portfolio-->
@@ -898,103 +826,31 @@
             </div>
 
             <div class="portfolio-items">
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复101 《高等数学》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 1</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item use">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复105 《国际金融》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 2</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复106
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 3</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
+             {% for foo in shuijiaostatus %}
+                 {% if foo.ClassStatus == 1  %}
 
                 <div class="portfolio-item use active">
                     <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复202 《中国近代史》
+                        <img class="img-responsive" src="../statics/assets/img/classimg0001.jpg" alt="">
+                        {{ foo.ClassName }} 《高等数学》
                         <div class="portfolio-info">
-                            <h3>Portfolio Item 4</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                            <h3>周慧</h3>
+                            《大学外语》
+                            <a class="preview" href="../statics/assets/img/classlive.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
                         </div>
                     </div>
                 </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
+                 {% else   %}
+                  <div class="portfolio-item use stanby">
                     <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复203
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 5</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
+                        <img class="img-responsive" src="../statics/assets/img/classimg0002.jpg" alt="">
+                        {{ foo.ClassName }}
+
                     </div>
                 </div><!--/.portfolio-item-->
+                 {% endif %}
+             {% endfor %}
 
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复204 《大学英语I》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 5</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复206
-
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 7</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复207 《大学英语I》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 8</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
             </div>
         </div><!--/.container-->
     </section><!--/#portfolio-->
@@ -1016,103 +872,31 @@
             </div>
 
             <div class="portfolio-items">
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复101 《高等数学》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 1</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item use">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复105 《国际金融》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 2</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复106
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 3</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
+             {% for foo in tijiaostatus %}
+                 {% if foo.ClassStatus == 1  %}
 
                 <div class="portfolio-item use active">
                     <div class="portfolio-item-inner">
                         <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复202 《中国近代史》
+                        {{ foo.ClassName }} 《高等数学》
                         <div class="portfolio-info">
-                            <h3>Portfolio Item 4</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                            <h3>周慧</h3>
+                            《大学外语》
+                            <a class="preview" href="../statics/assets/img/classlive.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
                         </div>
                     </div>
                 </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
+                 {% else   %}
+                  <div class="portfolio-item use stanby">
                     <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复203
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 5</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
+                        <img class="img-responsive" src="../statics/assets/img/classimg0002.jpg" alt="">
+                        {{ foo.ClassName }}
+
                     </div>
                 </div><!--/.portfolio-item-->
+                 {% endif %}
+             {% endfor %}
 
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复204 《大学英语I》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 5</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item standby">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0002.jpg" alt="">
-                        复206
-
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 7</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
-
-                <div class="portfolio-item use active">
-                    <div class="portfolio-item-inner">
-                        <img class="img-responsive" src="../statics/assets/img//classimg0001.jpg" alt="">
-                        复207 《大学英语I》
-                        <div class="portfolio-info">
-                            <h3>Portfolio Item 8</h3>
-                            Lorem Ipsum Dolor Sit
-                            <a class="preview" href="../statics/assets/img//full.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div><!--/.portfolio-item-->
             </div>
         </div><!--/.container-->
     </section><!--/#portfolio-->
@@ -1280,17 +1064,17 @@
     <script src="../statics/assets/js/main.js"></script>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="./class_info_files/jquery.js"></script>
-    <script src="./class_info_files/bootstrap.min.js"></script>
-    <script src="./class_info_files/jquery-ui-1.9.2.custom.min.js"></script>
-    <script src="./class_info_files/jquery.ui.touch-punch.min.js"></script>
-    <script class="include" type="text/javascript" src="./class_info_files/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="./class_info_files/jquery.scrollTo.min.js"></script>
-    <script src="./class_info_files/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="../statics/assets/js/jquery.js"></script>
+    <script src="../statics/assets/js/bootstrap.min.js"></script>
+    <script src="../statics/assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="../statics/assets/js/jquery.ui.touch-punch.min.js"></script>
+    <script class="include" type="text/javascript" src="../statics/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="../statics/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="../statics/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
     <!--common script for all pages-->
-    <script src="./class_info_files/common-scripts.js"></script><div id="ascrail2000" class="nicescroll-rails" style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 950px; display: none; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; float: right; width: 6px; height: 904px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; height: 6px; width: 1920px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div>
+    <script src="../statics/assets/js/common-scripts.js"></script><div id="ascrail2000" class="nicescroll-rails" style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 950px; display: none; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; float: right; width: 6px; height: 904px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; height: 6px; width: 1920px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div>
 
     <!--script for this page-->
     

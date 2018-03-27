@@ -13,5 +13,15 @@ class otsteam(models.Model):
     ImgName = models.CharField(max_length=50)
     Tel = models.CharField(max_length=50,default="")
 
+class building(models.Model):
+    Bid = models.CharField(max_length=50,default="")
+    Name = models.CharField(max_length=50)
+    Area = models.CharField(max_length=50)
+
+
+
+
+
+
 
 
