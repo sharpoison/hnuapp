@@ -313,10 +313,9 @@
                               <select name="Building_Num2" id="Building_Num2">
                                 {% for foo in Cstatus %}
 
-                                   {% if foo.Building == Buidings1.Name %}
-                                      <option value ="#">A101</option>
-                                       {% else %}
-                                      <option value ="#">{{ foo.ClassName }}-666{{ Buidings1.count }}</option>
+                                   {% if foo.Building == buildings1.Name %}
+                                      <option value ="#">{{ foo.ClassName }}</option>
+
                                    {% endif %}
 
                                 {% endfor %}
