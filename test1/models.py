@@ -21,6 +21,15 @@ class building(models.Model):
 class eventtype(models.Model):
     Name = models.CharField(max_length=50)
 
+class troubleevent(models.Model):
+    Person = models.CharField(max_length=50)
+    EventClass = models.CharField(max_length=50)
+    BeginDtime = models.DateTimeField()
+    EndDtime = models.DateTimeField()
+    EventType = models.CharField(max_length=50)
+    Edescribe = models.CharField(max_length=50)
+    Resolvent = models.CharField(max_length=50)
+
 
 
 

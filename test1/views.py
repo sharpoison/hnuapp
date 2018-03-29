@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import classstatus,otsteam,building,eventtype
+from .models import classstatus,otsteam,building,eventtype,troubleevent
 
 def home(request):
 # UsePer = classstatus.objects.filter(ClassStatus=1).count() / classstatus.objects.all().count()
@@ -38,5 +38,6 @@ def building_gallery(request):
 def form_ots(request,ids):
     return render(request,'form_ots.html',context={'buildings':building.objects.all(),'ids':ids,'Cstatus':classstatus.objects.all().order_by("ClassName"),'buildings1':building.objects.all().filter(id=ids).first(),'eventtypes':eventtype.objects.all(),'otsteams':otsteam.objects.all()})
 
-
+def query_event(request):
+    return render(request,'query_table_event.html',context={'troubleevents':troubleevent.objects.all()})
 
