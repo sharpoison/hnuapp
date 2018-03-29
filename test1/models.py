@@ -30,6 +30,10 @@ class troubleevent(models.Model):
     Edescribe = models.CharField(max_length=50)
     Resolvent = models.CharField(max_length=50)
 
+class week(models.Model):
+    weekid = models.IntegerField()
+    Tdate = models.CharField(max_length=50)
+
 
 
 

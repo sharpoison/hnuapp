@@ -380,62 +380,19 @@
                     <!--COMPLETED ACTIONS DONUTS CHART-->
 						<h3>运维公告栏</h3>
                                         
-                      <!-- First Action -->
-                      <div class="desc">
+                      {% for foo in troubleevents1 %}
+                       <div class="desc">
                       	<div class="thumb">
                       		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
                       	</div>
                       	<div class="details">
-                      		<p><muted>2018/01/01 08:00</muted><br/>
-                                <a href="#">汤程波</a> 处理了梯教101呼叫问题.<br/>
-
+                      		<p><muted>{{ foo.BeginDtime }}</muted><br/>
+                                <a href="#">{{ foo.Person }}</a> 处理了{{ foo.EventClass }}的{{ foo.EventType }}问题.<br/>
                             </p>
                       	</div>
                       </div>
-                      <!-- Second Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>2018/01/01 08:10</muted><br/>
-                      		   <a href="#">潘经广</a>处理了水教403呼叫问题.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Third Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>2018/01/01 08:20</muted><br/>
-                      		   <a href="#">瓜皮童</a> 处理了复临舍202呼叫问题.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Fourth Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>2018/01/01 08:30</muted><br/>
-                      		   <a href="#">瓜皮童</a> 处理了中楼203呼叫问题.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Fifth Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>2018/01/01 08:40</muted><br/>
-                      		   <a href="#">高大师</a> 处理了水教控制室服务器故障.<br/>
-                      		</p>
-                      	</div>
-                      </div>
+                      {% endfor %}
+
 
                        <!-- USERS ONLINE SECTION -->
 						<h3>运维人员信息</h3>

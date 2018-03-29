@@ -165,26 +165,26 @@
                             <table class="table table-bordered table-striped table-condensed">
                               <thead>
                               <tr>
-                                  <th>人员</th>
-                                  <th>报修时间</th>
-                                  <th>报修时间</th>
-                                  <th>报修地点</th>
-                                  <th>故障类型</th>
-                                  <th class="numeric">故障描述</th>
-                                  <th class="numeric">处理内容</th>
+                                  <th class="numeric">人员</th>
+                                  <th class="numeric">报修时间</th>
+                                  <th class="numeric">报修时间</th>
+                                  <th class="numeric">报修地点</th>
+                                  <th class="numeric">故障类型</th>
+                                  <th>故障描述</th>
+                                  <th>处理内容</th>
                                   <th class="numeric">...</th>
                               </tr>
                               </thead>
                               <tbody>
                               {% for foo1 in troubleevents  %}
                                <tr>
-                                   <td>{{ foo1.Person }}</td>
-                                  <td>{{ foo1.BeginDtime }}</td>
-                                   <td>{{ foo1.EndDtime }}</td>
-                                   <td>{{ foo1.EventClass }}</td>
-                                   <td>{{ foo1.EventType }}</td>
-                                  <td class="numeric">{{ foo1.Edescribe }}</td>
-                                   <td class="numeric">{{ foo1.Resolvent }}</td>
+                                   <td class="numeric">{{ foo1.Person }}</td>
+                                  <td class="numeric">{{ foo1.BeginDtime }}</td>
+                                   <td class="numeric">{{ foo1.EndDtime }}</td>
+                                   <td class="numeric">{{ foo1.EventClass }}</td>
+                                   <td class="numeric">{{ foo1.EventType }}</td>
+                                  <td>{{ foo1.Edescribe }}</td>
+                                   <td>{{ foo1.Resolvent }}</td>
                                   <td class="numeric">
                                       <button class="btn btn-primary btn-xs" onclick="bj()"><i class="fa fa-pencil"></i></button>
                                       <button class="btn btn-danger btn-xs" onclick="sc()"><i class="fa fa-trash-o "></i></button>
