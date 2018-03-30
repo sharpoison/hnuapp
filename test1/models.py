@@ -34,6 +34,11 @@ class week(models.Model):
     weekid = models.IntegerField()
     Tdate = models.CharField(max_length=50)
 
+class classtime(models.Model):
+    JieCi = models.CharField(max_length=50)
+    StartTime = models.CharField(max_length=50)
+    StopTime = models.CharField(max_length=50)
+
 
 
 

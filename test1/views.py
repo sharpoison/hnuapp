@@ -1,11 +1,21 @@
 # -*- coding: utf-8 -*-
-import datetime
+import datetime,time
 from django.utils.timezone import now,timedelta
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import classstatus,otsteam,building,eventtype,troubleevent,week
+from .models import classstatus,otsteam,building,eventtype,troubleevent,week,classtime
 
-
+def get_week_day(date):
+  week_day_dict = {
+    0 : '一',
+    1 : '二',
+    2 : '三',
+    3 : '四',
+    4 : '五',
+    5 : '六',
+    6 : '七',
+  }
+  return week_day_dict[date]
 
 def home(request):
 # UsePer = classstatus.objects.filter(ClassStatus=1).count() / classstatus.objects.all().count()
@@ -15,23 +25,35 @@ def home(request):
     ibuilding = building.objects.all().filter(id=1).first()
     week_id = week.objects.all()
 
-    date0 = datetime.datetime.strptime(detester,'%Y.%m.%d').date()
-    idate = datetime.datetime.now().date()
-    date_1=(idate - date0).days
+#    date0 = datetime.datetime.strptime(detester,'%Y.%m.%d').date()
+#    idate = datetime.datetime.now().date()
+#    date_1=(idate - date0).days
 
-    for fooo in week_id
-        if  7>datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()-datetime.datetime.now().date()>=0
+    for fooo in week_id:
+#        print(datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()-datetime.datetime.now().date())
+        if datetime.timedelta(days=7)>datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()-datetime.datetime.now().date()>=datetime.timedelta(days=0):
             week_id_now = fooo.weekid
+            day_Week = datetime.datetime.now().weekday()
+            a=get_week_day(day_Week)
+            print(week_id_now)
+            print(a)
+
+    for foooo in classtime.objects.all():
+        if datetime.datetime.strptime(foooo.StartTime,'%H%M').time()<datetime.datetime.now().time()<datetime.datetime.strptime(foooo.StopTime,'%H%M').time():
+            Jieci_now = foooo.JieCi
+            print(foooo.JieCi)
+            print(Jieci_now)
+            print(datetime.datetime.now().time())
 
 # UsePer = round(UsePer*100)
 # Ccount = classstatus.objects.count()
 #    print(isum)
 #    print(isum100)
 #    print(otsteam.objects.all().count())
-    print(date0)
-    print(idate)
-    print(date_1)
-    print(week_id_now)
+#    print(date0)
+#    print(idate)
+#    print(date_1)
+#    print(week_id_now)
 #    Ccontext=context({'Cstatus':classstatus.objects.all(),
 #                    'Ccount1':classstatus.objects.filter(ClassStatus=1).count(),
 #                    'CcountSum':classstatus.objects.all().count(),
