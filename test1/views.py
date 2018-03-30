@@ -31,7 +31,7 @@ def home(request):
 
     for fooo in week_id:
 #        print(datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()-datetime.datetime.now().date())
-        if datetime.timedelta(days=7)>datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()-datetime.datetime.now().date()>=datetime.timedelta(days=0):
+        if datetime.timedelta(days=7)>datetime.datetime.now().date()-datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()>=datetime.timedelta(days=0):
             week_id_now = fooo.weekid
             day_Week = datetime.datetime.now().weekday()
             a=get_week_day(day_Week)
