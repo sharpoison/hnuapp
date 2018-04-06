@@ -39,6 +39,24 @@ class classtime(models.Model):
     StartTime = models.CharField(max_length=50)
     StopTime = models.CharField(max_length=50)
 
+class course_table(models.Model):
+    jgh = models.CharField(max_length=50)
+    jgxm = models.CharField(max_length=50)
+    Dwmc = models.CharField(max_length=200,default="")
+    CardID = models.CharField(max_length=50,default="")
+    Xn = models.CharField(max_length=50)
+    xq = models.CharField(max_length=50)
+    Zc = models.CharField(max_length=50,default="")
+    Jc = models.CharField(max_length=50,default="")
+    Skdd = models.CharField(max_length=200,default="")
+    Skap = models.CharField(max_length=200,default="")
+    Kcmc = models.CharField(max_length=100,default="")
+    Bjmc = models.CharField(max_length=150,default="")
+    Skbjrs = models.CharField(max_length=50,default="")
+
+
+
+
 
 
 
