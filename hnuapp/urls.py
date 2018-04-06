@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from test1.views import home,classinfo,query_table_otsteam,building_gallery,form_ots,query_event
+from test1.views import home,classinfo,query_table_otsteam,building_gallery,form_ots,query_event,class_info_erjiao,class_info_shuijiao,class_info_tijiao
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^$', home, name='home'),
@@ -25,6 +25,9 @@ urlpatterns = [
     url(r'^form_ots/(\d+)$', form_ots, name='form_ots'),
     url(r'^building_gallery/', building_gallery, name='building_gallery'),
     url(r'^query_event/', query_event, name='query_event'),
+    url(r'^class_info_erjiao/', class_info_erjiao, name='class_info_erjiao'),
+    url(r'^class_info_shuijiao/', class_info_shuijiao, name='class_info_shuijiao'),
+    url(r'^class_info_tijiao/', class_info_erjiao, name='class_info_tijiao'),
     url(r'^admin/', admin.site.urls),
 ]
 urlpatterns+=staticfiles_urlpatterns()
