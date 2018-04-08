@@ -19,21 +19,11 @@ def get_week_day(date):
   }
   return week_day_dict[date]
 
-def home(request):
-# UsePer = classstatus.objects.filter(ClassStatus=1).count() / classstatus.objects.all().count()
-    isum = classstatus.objects.filter(ClassStatus=1).count() / classstatus.objects.all().count()
-    isum = round(isum * 100)
-    isum100 = 100-isum
-    ibuilding = building.objects.all().filter(id=1).first()
-    week_id = week.objects.all()
+week_id = week.objects.all()
 
-#    date0 = datetime.datetime.strptime(detester,'%Y.%m.%d').date()
-#    idate = datetime.datetime.now().date()
-#    date_1=(idate - date0).days
-
-    for fooo in week_id:
+for fooo in week_id:
 #        print(datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()-datetime.datetime.now().date())
-        if datetime.timedelta(days=7)>datetime.datetime.now().date()-datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()>=datetime.timedelta(days=0):
+    if datetime.timedelta(days=7)>datetime.datetime.now().date()-datetime.datetime.strptime(fooo.Tdate,'%Y.%m.%d').date()>=datetime.timedelta(days=0):
             week_id_now = fooo.weekid
             day_Week = datetime.datetime.now().weekday()
             week_now=get_week_day(day_Week)
@@ -51,22 +41,30 @@ def home(request):
             Jieci_now = None
             print(type(Jieci_now))
 
+def home(request):
+# UsePer = classstatus.objects.filter(ClassStatus=1).count() / classstatus.objects.all().count()
+    isum = classstatus.objects.filter(ClassStatus=1).count() / classstatus.objects.all().count()
+    isum = round(isum * 100)
+    isum100 = 100-isum
+
+
 #计算当前节次，周次的所有课程
     course_now = course_table.objects.all().filter(Q(Skdd__contains='中')|Q(Skdd__contains='复')|Q(Skdd__contains='综')|Q(Skdd__contains='研')|Q(Skdd__contains='前')|Q(Skdd__contains='二')|Q(Skdd__contains='水')|Q(Skdd__contains='东'),Jc=Jieci_now,Skap__contains=week_now).values('jgxm','Dwmc','Xn','xq','Zc','Skap','Skbjrs').distinct().order_by('jgxm')
 #虚拟节次
-    course_now1 = course_table.objects.all().filter(Q(Skdd__contains='中')|Q(Skdd__contains='复')|Q(Skdd__contains='综')|Q(Skdd__contains='研')|Q(Skdd__contains='前')|Q(Skdd__contains='二')|Q(Skdd__contains='水')|Q(Skdd__contains='东'),Jc='7-8',Skap__contains=week_now).values('jgxm','Dwmc','Xn','xq','Zc','Skap','Skbjrs').distinct().order_by('jgxm')
+    course_now1 = course_table.objects.all().filter(Q(Skdd__contains='中')|Q(Skdd__contains='复')|Q(Skdd__contains='综')|Q(Skdd__contains='研')|Q(Skdd__contains='前')|Q(Skdd__contains='二')|Q(Skdd__contains='水')|Q(Skdd__contains='东'),Jc='3-4',Skap__contains='7').values('jgxm','Dwmc','Xn','xq','Zc','Skap','Skbjrs').distinct().order_by('jgxm')
 
 
 
     print(course_now1.count(),course_now.count())
     course_count_now = 0
     course_Mem_count = 0
-    for foo2 in course_now:
+    for foo2 in course_now1:
         reg1 = re.findall(r'(\d+)',foo2['Zc'])
         if str(week_id_now) in reg1:
             print(foo2['Zc'],reg1)
             course_count_now = course_count_now + 1
             course_Mem_count = course_Mem_count + int(foo2['Skbjrs'])
+
             print(week_id_now, "is here!有", course_count_now, "堂课进行中。。")
         elif '-' in foo2['Zc']:
             reg = re.compile('(\d+)(-)(\d+)')
@@ -79,11 +77,12 @@ def home(request):
                 if week_id_now in range(int(reg[foo3][0]), int(reg[foo3][2]) + 1):
                     course_count_now = course_count_now + 1
                     course_Mem_count = course_Mem_count + int(foo2['Skbjrs'])
+
                     print(week_id_now,"is here!有",course_count_now,"堂课进行中。。")
 
 
 #    a="2,3,5,6"
-#    print(eval(a))
+#    print(class_array)
 
 # UsePer = round(UsePer*100)
 # Ccount = classstatus.objects.count()
@@ -124,9 +123,55 @@ def query_event(request):
 
 def class_info_erjiao(request):
     erjiao_room_count = classstatus.objects.filter(Building='二教').count()
-    shuijiao_room_count = classstatus.objects.filter(Building='水教').count()
-    tijiao_room_count = classstatus.objects.filter(Building='梯教').count()
-    return render(request,'class_info_erjiao.html',context={'otsteams':otsteam.objects.all(),'erjiao_room_count':erjiao_room_count,'shuijiao_room_count':shuijiao_room_count,'tijiao_room_count':tijiao_room_count})
+    erjiao_room = classstatus.objects.filter(Building='二教').order_by('ClassName')
+    # 计算当前节次，周次的所有课程,以教室为索引
+    course_now = course_table.objects.all().filter(Skdd__contains='二', Jc=Jieci_now,
+        Skap__contains=week_now).values('jgxm', 'Dwmc', 'Xn', 'xq', 'Zc','Skdd','Skap','Kcmc', 'Skbjrs').distinct().order_by('Skdd')
+    course_now1 = course_table.objects.all().filter(Skdd__contains='二', Jc='3-4',
+                                                   Skap__contains='一').values('jgxm', 'Dwmc', 'Xn', 'xq', 'Zc','Skdd',
+                                                                                   'Skap','Kcmc',
+                                                                                   'Skbjrs').distinct().order_by('Skdd')
+
+    print(course_now.count(), course_now1.count())
+    course_count_now = 0
+    course_Mem_count = 0
+    class_array = []
+    class_erjiao_array = []
+#    class_array.append(['1','2','3'])
+    for foo2 in course_now1:
+        reg1 = re.findall(r'(\d+)', foo2['Zc'])
+        if str(week_id_now) in reg1:
+            print(foo2['Zc'], reg1)
+            course_count_now = course_count_now + 1
+            course_Mem_count = course_Mem_count + int(foo2['Skbjrs'])
+            class_array.append([foo2['Skdd'], foo2['jgxm'],foo2['Kcmc'],foo2['Skbjrs']])
+            print(week_id_now, "is here!有", course_count_now, "堂课进行中。。")
+        elif '-' in foo2['Zc']:
+            reg = re.compile('(\d+)(-)(\d+)')
+            reg = reg.findall(foo2['Zc'])
+            #            print(foo2['Zc'], reg,len(reg))
+            #            print(foo2['Zc'],range(int(reg[0][0]),int(reg[0][2])+1))
+            #            print(foo2['Zc'], range(int(reg[1][0]), int(reg[1][2]) + 1))
+            for foo3 in range(len(reg)):
+                print(foo2['Zc'], range(int(reg[foo3][0]), int(reg[foo3][2]) + 1))
+                if week_id_now in range(int(reg[foo3][0]), int(reg[foo3][2]) + 1):
+                    course_count_now = course_count_now + 1
+                    course_Mem_count = course_Mem_count + int(foo2['Skbjrs'])
+                    class_array.append([foo2['Skdd'], foo2['jgxm'],foo2['Kcmc'],foo2['Skbjrs']])
+                    print(week_id_now, "is here!有", course_count_now, "堂课进行中。。")
+
+#    print(class_array)
+    for x_room in erjiao_room:
+        x = 0
+        for x_array in class_array:
+            if x_room.ClassName == x_array[0]:
+                class_erjiao_array.append([x_array[0],x_array[1],x_array[2],x_array[3]])
+                x = 1
+        if x == 0:
+            class_erjiao_array.append([x_room.ClassName,'','', ''])
+    print(class_erjiao_array)
+
+    return render(request,'class_info_erjiao.html',context={'otsteams':otsteam.objects.all(),'erjiao_room_count':erjiao_room_count,'erjiaostatus':classstatus.objects.all().order_by("ClassName").filter(Building="二教"),'course_count_now':course_count_now,'course_Mem_count':course_Mem_count,'course_now':course_now,'class_array':class_erjiao_array})
 
 def class_info_shuijiao(request):
     erjiao_room_count = classstatus.objects.filter(Building='二教').count()

@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<!-- saved from url=(0044)file:///D:/hnuapp/test1/templates/blank.html -->
+<html lang="en" style="overflow: hidden;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="iWiSYS">
+    <meta name="author" content="">
     <meta name="keyword" content="">
 
     <title>IWISYS智教系统</title>
-
 
     <!-- Bootstrap core CSS -->
     <link href="../statics/assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="../statics/assets/css/font-awesome.css" rel="stylesheet">
-
+        
     <!-- Custom styles for this template -->
     <link href="../statics/assets/css/style.css" rel="stylesheet">
     <link href="../statics/assets/css/style-responsive.css" rel="stylesheet">
@@ -35,7 +34,7 @@
     <![endif]-->
   </head>
 
-  <body id="home" class="homepage">
+  <body>
 
   <section id="container">
       <!-- **********************************************************************************************************************************************************
@@ -48,15 +47,28 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="" class="logo"><b>iWiSYS智教系统</b></a>
+            <a href="index.html" class="logo"><b>iWiSYS智教系统</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
 
             </div>
+                <div class="collapse navbar-collapse navbar-left">
+                    <ul class="nav navbar-nav">
+                        <li class="scroll active"><a href="#home">复临舍</a></li>
+                        <li class="scroll"><a href="#zhonglou">中楼</a></li>
+                        <li class="scroll"><a href="#yanjiushenglou">研究生楼</a></li>
+                        <li class="scroll"><a href="#zonghelou">综合楼</a></li>
+                        <li class="scroll"><a href="#donglou">东楼</a></li>
+                        <li class="scroll"><a href="#erjiao">二教</a></li>
+                        <li class="scroll"><a href="#shuijiao">水教</a></li>
+                        <li class="scroll"><a href="#tijiao">梯教</a></li>
+                        <li class="scroll"><a href="#qianjinlou">前进楼</a></li>
+                    </ul>
+                </div>
 
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="file:///D:/hnuapp/test1/templates/login.html">Logout</a></li>
+                    <li><a class="logout" href="login.html">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -147,73 +159,67 @@
       </aside>
 
       <!--sidebar end-->
-
+      
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
+<body id="home" class="homepage">
+       <section id="erjiao">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">二教</h2>
+                <p class="text-center wow fadeInDown">共{{ erjiao_room_count }}间教室，{{ course_count_now }}间有课，学生{{ course_Mem_count }}人</p>
+            </div>
 
-     <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> 运维事件列表</h3>
-		  		<div class="row mt">
-			  		<div class="col-lg-12">
-                      <div class="content-panel">
-                      <h4><i class="fa fa-angle-right"></i> 事件列表</h4>
+            <div class="text-center">
+                <ul class="portfolio-filter">
+                    <li><a class="active" href="#" data-filter="*">所有教室</a></li>
+                    <li><a href="#" data-filter=".use">课程安排</a></li>
+                    <li><a href="#" data-filter=".active">多媒体使用</a></li>
 
-                          <section id="unseen">
-                            <table class="table table-bordered table-striped table-condensed">
-                              <thead>
-                              <tr>
-                                  <th class="numeric">人员</th>
-                                  <th class="numeric">报修时间</th>
-                                  <th class="numeric">报修时间</th>
-                                  <th class="numeric">报修地点</th>
-                                  <th class="numeric">故障类型</th>
-                                  <th>故障描述</th>
-                                  <th>处理内容</th>
-                                  <th class="numeric">...</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              {% for foo1 in troubleevents  %}
-                               <tr>
-                                   <td class="numeric">{{ foo1.Person }}</td>
-                                  <td class="numeric">{{ foo1.BeginDtime }}</td>
-                                   <td class="numeric">{{ foo1.EndDtime }}</td>
-                                   <td class="numeric">{{ foo1.EventClass }}</td>
-                                   <td class="numeric">{{ foo1.EventType }}</td>
-                                  <td>{{ foo1.Edescribe }}</td>
-                                   <td>{{ foo1.Resolvent }}</td>
-                                  <td class="numeric">
-                                      <button class="btn btn-primary btn-xs" onclick="bj()"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs" onclick="sc()"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                               </tr>
-                              {% endfor %}
+                </ul><!--/#portfolio-filter-->
+            </div>
 
-
-
-
-                              </tbody>
-                          </table>
-                          </section>
-                  </div><!-- /content-panel -->
-               </div><!-- /col-lg-4 -->
-		  	</div><!-- /row -->
-
-          </tbody>
-                              </table>
-                          </section>
-                      </div><!-- /content-panel -->
-                  </div><!-- /col-lg-12 -->
-              </div><!-- /row -->
-
-		</section><! --/wrapper -->
-      </section><!-- /MAIN CONTENT -->
+            <div class="portfolio-items">
+                    {% for foo_class in class_array%}
+                         {% if foo_class.1 != ''%}
+                                 <div class="portfolio-item use active">
+                                     <div class="portfolio-item-inner">
+                                         <img class="img-responsive" src="../statics/assets/img/classimg0001.jpg" alt="">
+                                        {{ foo_class.0 }} {{ foo_class.2}}
+                                        <div class="portfolio-info">
+                                            <h3>{{ foo_class.1 }}</h3>
+                                            {{ foo_class.2}} {{ foo_class.3}}人
+                                            <a class="preview" href="../statics/assets/img/classlive.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                                        </div>
+                                     </div>
+                                 </div><!--/.portfolio-item-->
+                             {% else %}
+{#                                 <div class="portfolio-item use standby">#}
+{#                                     <div class="portfolio-item-inner">#}
+{#                                         <img class="img-responsive" src="../statics/assets/img/classimg0002.jpg" alt="">#}
+{#                                        {{ foo.ClassName }} {{ foo_class.2}}#}
+{#                                        <div class="portfolio-info">#}
+{#                                            <h3>{{ foo_class.1 }}</h3>#}
+{#                                            {{ foo_class.2}} {{ foo_class.3}}人#}
+{#                                            <a class="preview" href="../statics/assets/img/classlive.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>#}
+{#                                        </div>#}
+{#                                     </div>#}
+{#                                 </div><!--/.portfolio-item-->#}
+                                    <div class="portfolio-item stanby">
+                                        <div class="portfolio-item-inner">
+                                            <img class="img-responsive" src="../statics/assets/img/classimg0002.jpg" alt="">
+                                            {{ foo.ClassName }}
+                                        </div>
+                                    </div><!--/.portfolio-item-->
+                         {% endif %}
+                    {% endfor %}
 
 
 
+            </div>
+        </div><!--/.container-->
+    </section><!--/#portfolio-->
 
 
 
@@ -222,7 +228,7 @@
             <div class="row">
                 <div class="text-center">
               2018 -  <a href="http://www.hnu.cn/" target="_blank" title="智教系统">智教系统</a> - Powered by  <a href="http://www.hnu.cn/" title="iWiSYS" target="_blank">iWiSYS</a>
-              <a href="file:///D:/hnuapp/test1/templates/index.html#" class="go-top">
+              <a href="index.html#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>
@@ -270,7 +276,7 @@
     <script src="../statics/assets/js/common-scripts.js"></script><div id="ascrail2000" class="nicescroll-rails" style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 950px; display: none; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; float: right; width: 6px; height: 904px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; height: 6px; width: 1920px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div>
 
     <!--script for this page-->
-
+    
   <script>
       //custom select box
 
@@ -280,36 +286,6 @@
 
   </script>
 
+  
 
-
-  <a href="javascript:bj();">编辑框</a>
-    <script language="javascript">
-        function bj()
-        {
-        var name;
-        var tel;
-        var imgname;
-
-        name=prompt("姓名：","");
-        tel=prompt("联系电话","");
-        imgname=prompt("图片名称","");
-
-        if(name==null) alert("需要输入名字！");
-        else
-        {
-        if(name=="请在此输入名字") alert("输入名字！");
-        else
-        {
-        if(name=="") alert("输入名字！");
-        else
-        {
-        alert(name + "，ok！");
-        }
-        }
-        }
-        }
-        </script>
-
-
-
-</section><div id="ascrail2000" class="nicescroll-rails" style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 950px; display: none; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; left: 0px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; float: right; width: 6px; height: 131px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0; background: rgb(64, 64, 64);"><div style="position: relative; top: 0px; height: 6px; width: 1920px; border-radius: 10px; background-color: rgb(78, 205, 196); background-clip: padding-box;"></div></div></body></html>
+</body></html>
